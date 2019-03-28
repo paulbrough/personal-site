@@ -1,3 +1,3 @@
 exports.makeEntryPath = (entry) => {
-  return entry.slug;
+  return "/" + entry.slug + "/";
 }

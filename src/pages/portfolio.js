@@ -1,33 +1,22 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Link } from "gatsby"
-
 import Layout from "../components/layout"
+import Portfolio from "../components/portfolio"
 import PageHeader from "../components/page-header"
 import PageContent from "../components/page-content"
-import Portfolio from "../components/portfolio"
 
 export default ({ data }) => (
-  <Layout>
-
+	<Layout>
     <PageHeader>
-      <div>
-        <h1>Hello</h1>
-        <p className="lead">I am a full-stack web developer located in Palmer Lake, Colorado (an easy drive to Denver, Castle Rock, or Colorado Springs). 
-        I am available for hire for a wide variety of projects. 
-        Take a look at my <Link to="/portfolio">portfolio</Link> and <Link to="/resume">resume</Link>, and <Link to="/contact">contact</Link> me to discuss your next project.</p>
-      </div>
+
+      <h1>Portfolio</h1>
+      <p className="lead">Below you will find a few projects that represent the work I have done over the last several years.</p>
     </PageHeader>
     <PageContent>
-      <h2>Selected Projects</h2>
+
       <Portfolio entries={data.craft.entries}></Portfolio>
     </PageContent>
-
-
-
-
-
-  </Layout>
+	</Layout>
 )
 
 export const query = graphql`

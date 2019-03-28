@@ -14,15 +14,14 @@ function PositionDates(props) {
 export default (props) => {
     return (
         <div className={resumeStyles.resume}>
-            <h1>{props.entry.title}</h1>
             {props.entry.workHistory.map((item, index) => (
                 <div key={index} className="workSection">
-                    <h2>{item.company}</h2>
+                    <h2 className="resumeCompany">{item.company}</h2>
                     <div className="positions">
                         {item.positions.map((position, index) => (
                             <div className="position" key={index}>
                                 <header className='positionHeader'>
-                                    <h3>{position.position}</h3>
+                                    <h3 className={resumeStyles.resumePosition}>{position.position}</h3>
                                     <PositionDates dateStart={position.startDateFormatted} dateEnd={position.endDateFormatted} ></PositionDates>
                                 </header>
                                 <ul>
@@ -39,7 +38,7 @@ export default (props) => {
             ))}
     
             {props.entry.skills.map((skill, index) => (
-                <div key={index} className="skilSection">
+                <div key={index} className={resumeStyles.skills}>
                     <h2>{skill.heading}</h2>
                     <ul>
                         {skill.skills.map((skill, index) => (

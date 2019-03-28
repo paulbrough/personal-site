@@ -2,7 +2,8 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import Resume from "../components/resume"
-
+import PageHeader from "../components/page-header"
+import PageContent from "../components/page-content"
 
 
 
@@ -13,7 +14,12 @@ export default ({ data }) => {
     const entry = data.craft.entries[0];
     return (
         <Layout>
+          <PageHeader>
+            <h1>Resume</h1>
+          </PageHeader>
+          <PageContent>
             <Resume entry={entry}></Resume>
+          </PageContent>
         </Layout>
     )
 }

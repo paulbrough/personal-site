@@ -5,7 +5,6 @@ import { makeEntryPath } from "../utils"
 export default (props) => {
     return (
         <div>
-            <h2>Selected Projects</h2>
             <div className={portfolioStyles.portfolio}>
                 {props.entries.map((entry, index) => (
                     <div key={index} className={portfolioStyles.portfolioItem}>

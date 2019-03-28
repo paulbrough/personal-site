@@ -1,0 +1,71 @@
+@import "../styles/_variables";
+
+.page-header {
+    position: relative;
+    z-index: 400;
+    padding-top: 6rem;
+
+    @media (min-width: 395px) {
+      padding-top: 5rem;
+    }
+
+    color: white;
+
+    a {
+        color: #f4f1de;
+        color: white;
+
+        // color: #ffb184;
+        font-weight: bold;
+
+        &:hover {
+            color: inherit;
+        }
+    }
+
+    padding-bottom: 1rem;
+
+    @media (min-width: 725px) {
+        padding-bottom: 3rem;
+    }
+
+    @media (min-width: $container-width - 200) {
+        min-height: 250px;
+    }
+
+    > div {
+        // padding-bottom: 6rem;
+   
+    }
+
+    h1 {
+        color: inherit;
+    }
+
+    svg {
+        position: absolute;
+        bottom: -2px;
+        width: 100%;
+        height: 6vw;
+    }
+
+    background-image: linear-gradient(30deg, $color-secondary 0%, $color-primary 100%); // good
+
+    // &:before {
+    //     background-image: linear-gradient(30deg, #80d0c7 0%, #13547a 100%); // good
+
+    //     content: "";
+    //     clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    //     right: 0;
+    //     bottom: 0;
+    //     z-index: 1;
+    // }
+}
+
+.content {
+    z-index: 500;
+    position: relative;
+}

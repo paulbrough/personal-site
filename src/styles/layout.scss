@@ -1,7 +1,14 @@
-.layout {
-	background: red;
+@import "../styles/_variables";
+
+.site {
+  position: relative;
 }
+
 .container {
-	width: 960px;
-	margin: 0 auto;
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.banner {
+
 }

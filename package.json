@@ -22,7 +22,7 @@
     "react-dom": "^16.8.3",
     "react-typography": "^0.16.18",
     "typography": "^0.16.18",
-    "typography-theme-alton": "^0.16.18"
+    "typography-theme-moraga": "^0.16.19"
   },
   "devDependencies": {
     "prettier": "^1.16.4"

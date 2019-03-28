@@ -1,13 +1,26 @@
+
+@import "../styles/_variables";
+
+
+$banner-overhang: 200px;
+.portfolio-item-screenshot {
+	margin-bottom: 1.5rem;
+	box-shadow: 2px 2px 10px rgba(black, 0.25);
+}
+
 .portfolio {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-gap: 2rem;
-
-
+	grid-template-columns: 1fr;
+	grid-gap: 1rem;
+	@media (min-width: 725px) {
+		grid-template-columns: 1fr 1fr;
+	}
+	@media (min-width: $container-width) {
+		grid-gap: 2rem;
+	}
 }
 
 .portfolio-item {
-	// border: 1px solid silver;
 	text-align: center;
 }
 

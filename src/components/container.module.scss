@@ -1,4 +1,8 @@
+@import "../styles/_variables";
+
 .container {
-	width: 960px;
-	margin: 0 auto;
+  position: relative;
+  padding: 0 1rem;
+  max-width: $container-width;
+  margin: 0 auto;
 }
