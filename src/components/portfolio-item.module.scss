@@ -29,7 +29,7 @@ $banner-overhang: 150px;
     background-position: top;
 
     @media (min-width: 725px) {
-      padding-bottom: 35%;
+        padding-bottom: 35%;
         width: 47%;
         margin-top: -400px;
         transform: translateY(400px);
@@ -51,12 +51,24 @@ $banner-overhang: 150px;
 }
 
 .gallery {
-    display: grid;
+    @supports (display: grid) {
+        display: grid;
+    }
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 1rem;
 }
 
 .gallery-item {
+    float: left;
+    width: 33.33%;
+    padding: 0.5rem;
+
+    @supports (display: grid) {
+        display: grid;
+        padding: 0;
+        width: auto;
+    }
+
     img {
         margin-bottom: 0;
         box-shadow: 2px 2px 8px rgba(black, 0.33);
