@@ -2,6 +2,7 @@ import React from "react"
 import Layout from "../components/layout"
 import PageHeader from "../components/page-header"
 import PageContent from "../components/page-content"
+import SEO from "../components/seo"
 
 
 
@@ -11,11 +12,12 @@ export default ({ data }) => {
     // Get the single item in the array
     return (
         <Layout>
+            <SEO title="Contact" />
             <PageHeader>
                 <h1>Contact Me</h1>
             </PageHeader>
             <PageContent>
-                
+
                 <form name="Contact" method="POST" data-netlify="true" action="/thank-you">
                     <input type="hidden" name="form-name" value="Contact" />
                     <p className="form-group">

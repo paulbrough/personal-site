@@ -4,6 +4,8 @@ import Layout from "../components/layout"
 import portfolioItemStyles from "./portfolio-item.module.scss"
 import PageHeader from "../components/page-header"
 import PageContent from "../components/page-content"
+import SEO from "../components/seo"
+
 
 function ProjectLink(props) {
   console.log(props.link);
@@ -19,8 +21,10 @@ export default ({ data }) => {
   console.log(data);
   const entry = data.craft.entries[0];
   let screenshot = 'https://res.cloudinary.com/pkb/image/fetch/w_800,f_auto/' + entry.screenshot[0].url;
+  let ogImage = 'https://res.cloudinary.com/pkb/image/fetch/w_600,h_400/' + entry.screenshot[0].url;
   return (
     <Layout>
+      <SEO title={entry.title}  image={ogImage} />
       <PageHeader>
 
         <div className={portfolioItemStyles.header}>
@@ -45,7 +49,7 @@ export default ({ data }) => {
           {entry.gallery.map((galleryItem, index) => (
             <div key={index} className={portfolioItemStyles.galleryItem}>
               <figure>
-                <img src={'https://res.cloudinary.com/pkb/image/fetch/w_800,h_600,f_auto/' + galleryItem.image[0].url} alt=""/>
+                <img src={'https://res.cloudinary.com/pkb/image/fetch/w_800,h_600,f_auto/' + galleryItem.image[0].url} alt={galleryItem.image[0].title} />
                 <figcaption>{galleryItem.caption}</figcaption>
               </figure>
             </div>
@@ -60,7 +64,7 @@ export default ({ data }) => {
               <div className="bodyCopy" dangerouslySetInnerHTML={{ __html: section.description.content }}></div>
             </div>
             <div className={portfolioItemStyles.portfolioSectionImage}>
-              <img src={'https://res.cloudinary.com/pkb/image/fetch/w_800,f_auto/' + section.screenshot[0].url} alt="" className={portfolioItemStyles.portfolioItemScreenshot} />
+              <img src={'https://res.cloudinary.com/pkb/image/fetch/w_800,f_auto/' + section.screenshot[0].url} alt={section.screenshot[0].title} className={portfolioItemStyles.portfolioItemScreenshot} />
             </div>
 
           </section>
@@ -99,6 +103,7 @@ query($slug: String!) {
             image {
               id
               url
+              title
               screenshotSmall: url(transform: screenshotSmall)
               screenshotMedium: url(transform: screenshotMedium)
             }
@@ -116,6 +121,7 @@ query($slug: String!) {
             screenshot {
               id
               url
+              title
               screenshotSmall: url(transform: screenshotSmall)
               screenshotMedium: url(transform: screenshotMedium)
             }

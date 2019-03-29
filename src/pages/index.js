@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { Link } from "gatsby"
+import SEO from "../components/seo"
 
 import Layout from "../components/layout"
 import PageHeader from "../components/page-header"
@@ -9,6 +10,7 @@ import Portfolio from "../components/portfolio"
 
 export default ({ data }) => (
   <Layout>
+    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
 
     <PageHeader>
       <div>
@@ -30,31 +32,28 @@ export default ({ data }) => (
   </Layout>
 )
 
-export const query = graphql`
-{
-    craft {
-      entries(section: [portfolio]) {
-        ... on Craft_Portfolio {
+export const query = graphql`{
+  craft {
+    entries(section: [portfolio]) {
+      ... on Craft_Portfolio {
+        id
+        title
+        slug
+        client
+        dateCreated
+        screenshot {
           id
-		  title
-		  slug
-          client
-          dateCreated
-          screenshot {
-            id
-			url
-			screenshotSmall: url(transform: screenshotSmall)
-			screenshotMedium: url(transform: screenshotMedium)
-          }
-          description {
-            totalPages
-            content
-          }
-          
-  
+          url
+          title
+          screenshotSmall: url(transform: screenshotSmall)
+          screenshotMedium: url(transform: screenshotMedium)
+        }
+        description {
+          totalPages
+          content
         }
       }
     }
   }
-  
+} 
 `

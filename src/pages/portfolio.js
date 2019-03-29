@@ -4,9 +4,12 @@ import Layout from "../components/layout"
 import Portfolio from "../components/portfolio"
 import PageHeader from "../components/page-header"
 import PageContent from "../components/page-content"
+import SEO from "../components/seo"
 
 export default ({ data }) => (
 	<Layout>
+    <SEO title="Portfolio" keywords={[`gatsby`, `application`, `react`]} description="test description" />
+
     <PageHeader>
 
       <h1>Portfolio</h1>
@@ -21,29 +24,29 @@ export default ({ data }) => (
 
 export const query = graphql`
 {
-    craft {
-      entries(section: [portfolio]) {
-        ... on Craft_Portfolio {
+  craft {
+    entries(section: [portfolio]) {
+      ... on Craft_Portfolio {
+        id
+        title
+        slug
+        client
+        dateCreated
+        screenshot {
           id
-		  title
-		  slug
-          client
-          dateCreated
-          screenshot {
-            id
-			url
-			screenshotSmall: url(transform: screenshotSmall)
-			screenshotMedium: url(transform: screenshotMedium)
-          }
-          description {
-            totalPages
-            content
-          }
-          
-  
+          url
+          title
+          screenshotSmall: url(transform: screenshotSmall)
+          screenshotMedium: url(transform: screenshotMedium)
+        }
+        description {
+          totalPages
+          content
         }
       }
     }
   }
+}
+
   
 `

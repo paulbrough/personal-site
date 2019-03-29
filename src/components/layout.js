@@ -1,16 +1,36 @@
 import React from "react"
-import Header from "../components/header"
-import Footer from "../components/footer"
+import PropTypes from "prop-types"
+import { StaticQuery, graphql } from "gatsby"
 
-export default ({ children }) => (
-  
-  
-  <div className="site">
-    <Header></Header>
-    {children}
-    <Footer></Footer>
-  </div>
+import Header from "./header"
+// import "./layout.css"
 
-
-
+const Layout = ({ children }) => (
+  <StaticQuery
+    query={graphql`
+      query SiteTitleQuery {
+        site {
+          siteMetadata {
+            title
+          }
+        }
+      }
+    `}
+    render={data => (
+      <>
+        <Header siteTitle={data.site.siteMetadata.title} />
+        <div>
+          <main>{children}</main>
+          <footer>
+          </footer>
+        </div>
+      </>
+    )}
+  />
 )
+
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
+}
+
+export default Layout
