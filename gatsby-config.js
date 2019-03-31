@@ -7,6 +7,22 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Paul Brough`,
+        short_name: `PaulBrough`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#13547A`,
+        // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
+        // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
+        display: `standalone`,
+        icon: `static/icon.png`, // This path is relative to the root of the site.
+        include_favicon: true, // Include favicon
+      },
+    },
+    `gatsby-plugin-offline`,
+    {
       resolve: "gatsby-source-graphql",
       options: {
         fieldName: `craft`,
@@ -29,7 +45,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: "UA-137251375-2",
+        trackingId: "UA-137251375-1",
         // Puts tracking script in the head instead of the body
         head: false,
         // Setting this parameter is optional
