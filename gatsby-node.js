@@ -17,12 +17,7 @@ exports.createPages = async ({ actions, graphql }) => {
                   id
                   url
                 }
-                description {
-                  totalPages
-                  content
-                }
-                
-        
+                description
               }
             }
           }

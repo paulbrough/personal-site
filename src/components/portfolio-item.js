@@ -24,7 +24,7 @@ export default ({ data }) => {
   let ogImage = 'https://res.cloudinary.com/pkb/image/fetch/w_600,h_400/' + entry.screenshot[0].url;
   return (
     <Layout>
-      <SEO title={entry.title}  image={ogImage} />
+      <SEO title={entry.title}  image={ogImage} description={entry.description} />
       <PageHeader>
 
         <div className={portfolioItemStyles.header}>
@@ -33,7 +33,9 @@ export default ({ data }) => {
             <div className="entry-meta">
               <p>Built for <strong>{entry.client}</strong></p>
             </div>
-            <div className="bodyCopy lead" dangerouslySetInnerHTML={{ __html: entry.description.content }}></div>
+            <div className="bodyCopy lead">
+              <p>{entry.description}</p>
+            </div>
 
 
           </div>
@@ -93,10 +95,7 @@ query($slug: String!) {
           screenshotBanner: url(transform: screenshotBanner)
           screenshotMedium: url(transform: screenshotMedium)
         }
-        description {
-          totalPages
-          content
-        }
+        description
         gallery {
           ... on Craft_GalleryImage {
             caption

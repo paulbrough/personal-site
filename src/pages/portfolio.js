@@ -22,6 +22,7 @@ export default ({ data }) => (
 	</Layout>
 )
 
+
 export const query = graphql`
 {
   craft {
@@ -39,10 +40,7 @@ export const query = graphql`
           screenshotSmall: url(transform: screenshotSmall)
           screenshotMedium: url(transform: screenshotMedium)
         }
-        description {
-          totalPages
-          content
-        }
+        description
       }
     }
   }

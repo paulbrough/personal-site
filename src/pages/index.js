@@ -48,10 +48,7 @@ export const query = graphql`{
           screenshotSmall: url(transform: screenshotSmall)
           screenshotMedium: url(transform: screenshotMedium)
         }
-        description {
-          totalPages
-          content
-        }
+        description
       }
     }
   }
